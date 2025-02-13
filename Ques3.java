@@ -35,19 +35,25 @@ public class Ques3 {
 
         List<Map.Entry<Employee1,Integer>> list = new ArrayList<>(entry);
 
+//        Iterator it = list.iterator();
+        System.out.println("Before Sorting: ");
+        for(Map.Entry<Employee1,Integer> emp : list){
+            System.out.println(emp);
+        }
+
         //Apply comparator on list
-        Collections.sort(list, new Comparator() {
+        Collections.sort(list, new Comparator<Map.Entry<Employee1,Integer>>() {
             @Override
-            public int compare(Object o1, Object o2) {
-                if(((Map.Entry)(o1)).getValue )
+            public int compare(Map.Entry<Employee1,Integer> o1,Map.Entry<Employee1,Integer>  o2) {
+                if(o1.getValue() > o2.getValue()) return -1;
+                else return 1;
             }
         });
 
-//        Collections.sort(employeeMap, new Comparator<Employee1>() {
-//            @Override
-//            public int compare(Employee1 o1, Employee1 o2) {
-//                return 0;
-//            }
-//        })
-//}
+        System.out.println("After Sorting: ");
+        for(Map.Entry<Employee1,Integer> emp : list){
+            System.out.println(emp);
+        }
+
+    }
 }
