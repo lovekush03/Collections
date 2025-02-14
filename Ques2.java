@@ -1,5 +1,7 @@
 //Given the following class Employee class{ Double Age; Double Salary; String Name} Design the class in such a way that the default sorting should work on firstname and lastname. Also, Write a program to sort Employee objects based on salary using Comparator.
 
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 class Employee implements Comparable<Employee> {
@@ -16,12 +18,13 @@ class Employee implements Comparable<Employee> {
     @Override
     public int compareTo(Employee o) {
         if(this.name.compareTo(o.name) > 0) return 1;
-        else return -1;
+        else if(this.name.compareTo(o.name) < 0) return -1;
+        else return 0;
     }
 
     @Override
     public String toString(){
-        return "Employee->  Name: "+this.name+" Age: "+this.age+" Salary: "+this.salary;
+        return "Employee Name: "+this.name+" Age: "+this.age+" Salary: "+this.salary;
     }
 }
 public class Ques2 {
@@ -49,7 +52,6 @@ public class Ques2 {
                 else return -1;
             }
         });
-
         for (Employee emp : employees){
             System.out.println(emp);
         }

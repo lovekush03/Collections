@@ -3,6 +3,22 @@
 import java.util.*;
 
 public class Ques5 {
+    public static List<Map.Entry<String,Integer>> sortByValue(List<Map.Entry<String,Integer>> lst){
+        Collections.sort(lst,new Comparator<Map.Entry<String,Integer>>(){
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                if(o1.getValue() > o2.getValue()) return 1;
+                else if(o1.getValue() < o2.getValue()) return -1;
+                else{
+                    //if similar length Strings then return the string which comes first in the array
+                    if(lst.indexOf(o1) > lst.indexOf(o2)) return 1;
+                    else return -1;
+                }
+            }
+        });
+        return lst;
+    }
+
     public static void main(String[] args) {
         List<String> strList = new ArrayList<>();
         strList.add("Dog");
@@ -25,26 +41,14 @@ public class Ques5 {
         Set<Map.Entry<String,Integer>> etrSet = lengthMap.entrySet();
 //        System.out.println(etrSet);
         List<Map.Entry<String,Integer>> lst = new ArrayList<>(etrSet);
-//        for(Map.Entry<String,Integer> entry:lst){
-//            System.out.println(entry);
-//        }
 
         //Sorting the List by Length and if Length is same printing string which comes first in array
-        Collections.sort(lst, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                if(o1.getValue() > o2.getValue()) return 1;
-                else if(o1.getValue() < o2.getValue()) return -1;
-                else{
-                    if(lst.indexOf(o1) < lst.indexOf(o2)) return -1;
-                    else return 1;
-                }
-            }
-        });
+        lst = sortByValue(lst);
 
         System.out.println("After Sorting ");
         for(Map.Entry<String,Integer> entry: lst){
             System.out.println(entry);
         }
+
     }
 }

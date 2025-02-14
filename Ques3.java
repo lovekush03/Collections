@@ -31,11 +31,12 @@ public class Ques3 {
         //Create a Entry Set
         Set<Map.Entry<Employee1,Integer>> entry = employeeMap.entrySet();
 
-        //Convert the Entry set into an arrayList for applying sort function\
+        //Convert the Entry set into an arrayList for applying sort function
 
         List<Map.Entry<Employee1,Integer>> list = new ArrayList<>(entry);
 
-//        Iterator it = list.iterator();
+        //Iterator it = list.iterator();
+
         System.out.println("Before Sorting: ");
         for(Map.Entry<Employee1,Integer> emp : list){
             System.out.println(emp);
